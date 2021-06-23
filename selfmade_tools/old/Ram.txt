@@ -1,0 +1,38 @@
+PPU_config:
+		ldx #$00
+		@load_y:
+			jmp @y_32
+			inx
+			iny
+			jsr check_overflow
+			cpx y_coord
+			bne load_y
+			jmp @load_x
+		@y_32:
+			lda PPU_address_low
+			clc
+			adc #$20
+			sta PPU_address_low
+			jmp @laod_y
+		
+		@load_x:
+		lda PPU_address_low
+		clc 
+		adc x_coord
+		
+		lda PPU_address_high
+		sta $2006
+		lda PPU_address_low
+		sta $2006
+		
+	
+
+	check_overflow:
+		cpy #$08
+		beq :+
+		rts
+		:
+			inc PPU_address_high
+			ldy #$00
+			sty PPU_address_low
+			rts
