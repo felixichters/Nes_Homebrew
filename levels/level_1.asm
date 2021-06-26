@@ -158,51 +158,51 @@ jsr clear_screen
 
     lda #$44
     sta collectable_tile
-    lda #$80
+    lda #$A8
     sta SPRITE_3_X
-    lda #$10 
+    lda #$1A
     sta SPRITE_3_Y
     lda #$00 
     sta SPRITE_3_ATTR
 ;stomper
-   ; lda #$47
-   ; sta SPRITE_13_Y
-   ; lda #$61
-   ; sta SPRITE_13_X
-   ; lda #$01 
-   ; sta SPRITE_10_ATTR 
-   ; lda #$03
-   ; sta current_room_e4 
+    lda #$60
+    sta SPRITE_13_Y
+    lda #$98
+    sta SPRITE_13_X
+    lda #$01
+    sta SPRITE_10_ATTR 
+    lda #$02
+    sta current_room_e4 
 ;vaccum
-   ; lda #$1F
-   ; sta SPRITE_10_Y
-   ; lda #$60
-   ; sta SPRITE_10_X
-   ; lda #$02
-   ; sta SPRITE_13_ATTR 
-   ; lda #$04
-   ; sta current_room_e3  
+    lda #$37
+    sta SPRITE_10_Y
+    lda #$60
+    sta SPRITE_10_X
+    lda #$02
+    sta SPRITE_13_ATTR 
+    lda #$03
+    sta current_room_e3  
 ;cat
-   ; lda #$98
-   ; sta SPRITE_7_Y
-   ; lda #$80
-   ; sta SPRITE_7_X
-   ; lda #$03
-   ; sta SPRITE_7_ATTR
-   ; lda #$01
-   ; sta current_room_e2
+    lda #$87
+    sta SPRITE_7_Y
+    lda #$82
+    sta SPRITE_7_X
+    lda #$03
+    sta SPRITE_7_ATTR
+    lda #$01
+    sta current_room_e2
 ;set var *********************************** 
     ;collision map 
     lda #<collision_map_1_1                   ;hibyte der collisions map des ersten levels vorberieten
     sta collision_ptr                       ;...
     lda #>collision_map_1_1                   ;...    
     sta collision_ptr+1                     ;...
-    lda #<every_frame_lvl1_1 
+    lda #<every_frame_lvl1
     sta every_frame_ptr 
-    lda #>every_frame_lvl1_1
+    lda #>every_frame_lvl1
     sta every_frame_ptr+1 
 
-    lda #$04 
+    lda #$03
     sta collectable_room
 
     lda #<palette_data_1_1
