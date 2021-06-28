@@ -1,11 +1,10 @@
 level_1:
-jmp hier 
 jsr wait 
 lda #$CF 
 sta ground_texture
 jsr clear_screen
 
-    lda  #<lamuella                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    lda #<lamuella                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     sta room_ptr
     lda #>lamuella
     sta room_ptr+1                                                                        
@@ -97,6 +96,16 @@ jsr clear_screen
         lda #<room_3_3
         sta room_ptr
         lda #>room_3_3 
+        sta room_ptr+1
+        jsr background_engine 
+
+        lda #$21
+        sta ppu_addr_high
+        lda #$E9
+        sta ppu_addr_low
+        lda #<connection_room_2_3
+        sta room_ptr
+        lda #>connection_room_2_3
         sta room_ptr+1
         jsr background_engine 
 

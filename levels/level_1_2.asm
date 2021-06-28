@@ -1,5 +1,4 @@
-level_1:
-jmp hier 
+level_1_2:
 jsr wait 
 lda #$CF 
 sta ground_texture
@@ -15,8 +14,7 @@ jsr clear_screen
     sta ppu_addr_low
     jsr background_engine
 
-    lda #%10001000                        ;increment mode x1
-    sta PPU_CTRL 
+    IN_MODE_1
     lda #$3F
     sta PPU_ADDR
     lda #$00
@@ -33,25 +31,19 @@ jsr clear_screen
     :
     lda frame_status
     beq :- 
-    lda #%10001000                        ;increment mode x1
-    sta PPU_CTRL 
+IN_MODE_1
     lda #$00
     sta frame_status
     inx 
     cpx #$FF 
     bne :- 
-    lda #%10001000 
-    sta PPU_CTRL
+IN_MODE_1
     lda #$00
     sta ground_texture
     hide 
-
-    hier:
     jsr clear_screen
 ;load background*******************************
-    lda #%10001100                        ;increment mode x1
-    sta PPU_CTRL 
-
+IN_MODE_32
     ldx #$20
     ldy #$01
     lda #$1D
@@ -90,9 +82,7 @@ jsr clear_screen
     ldy #$1F
     jsr load_ground
 
-    lda #%10001000                        ;increment mode x1
-    sta PPU_CTRL 
-
+IN_MODE_1
     ldx #$23
     ldy #$A0
     jsr load_ground
@@ -105,9 +95,7 @@ jsr clear_screen
     ldy #$00
     jsr load_ground
 
-    lda #%10001100                        ;increment mode x1
-    sta PPU_CTRL 
-
+    IN_MODE_32
     ldx #$20
     ldy #$00
     lda #$0D
