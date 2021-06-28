@@ -1,7 +1,6 @@
 ;level auswahl bildschirm vorbereiten
 ;user input verarbeiten
 LEVEL_SELECTION:
-jsr level_1
     hide 
     jsr clear_screen
 ;load background*******************************

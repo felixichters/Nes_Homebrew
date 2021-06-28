@@ -1,3 +1,13 @@
+.macro IN_MODE_1
+    lda #%10001000                        ;increment mode x1
+    sta PPU_CTRL 
+.endmacro
+
+.macro IN_MODE_32
+    lda #%10001100                        ;increment mode x1
+    sta PPU_CTRL 
+.endmacro
+
 .macro twos_comp addr 
     lda addr 
     sta tmp 

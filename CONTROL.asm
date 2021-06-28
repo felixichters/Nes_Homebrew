@@ -20,9 +20,8 @@
 .segment "ZEROPAGE";*******************************************************************************************************************
 	.include "ZEROPAGE_VARIABLES.asm"
 
-;.segment "STARTUP";*******************************************************************************************************************
-;	.include "RESET.asm"						;reset/startup interruptionsroutine
-
+.segment "RAM"
+.segment "BSS"
 .segment "CODE";************************************************************************************************************************
 	.include "MACROS.asm"
 	.include "CONSTANTS.asm"					;konstanten wie Adressen
