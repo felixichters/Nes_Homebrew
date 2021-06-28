@@ -1,5 +1,6 @@
 #include "Main.h"
 #include "Room.h"
+#include "Func.h"
 #include <iostream>
 
 #define ID_ROOM_M 10000
@@ -78,30 +79,30 @@ void Main::rectClicked(wxCommandEvent& evt)
 //Button Events ------------------------------------------------------------------------------------------------------
 void Main::saveName(wxCommandEvent& evt)
 {
-	objList->SetItem(index -1 ,1, nameTxt->GetValue());
+	objList->SetItem(getTmpIndex(objList, index),1, nameTxt->GetValue());
 	evt.Skip();
 }
 
 void Main::saveXS(wxCommandEvent& evt)
 {
+	objList->SetItem(getTmpIndex(objList, index), 2, xsTxt->GetValue());
 	evt.Skip();
-	objList->SetItem(index - 1, 1, xsTxt->GetValue());
 }
 
 void Main::saveYS(wxCommandEvent& evt)
 {
+	objList->SetItem(getTmpIndex(objList, index), 3, ysTxt->GetValue());
 	evt.Skip();
-	objList->SetItem(index - 1, 1, ysTxt->GetValue());
 }
 
 void Main::saveXE(wxCommandEvent& evt)
 {
+	objList->SetItem(getTmpIndex(objList, index), 4, xeTxt->GetValue());
 	evt.Skip();
-	objList->SetItem(index - 1, 1, xeTxt->GetValue());
 }
 
 void Main::saveYE(wxCommandEvent& evt)
 {
+	objList->SetItem(getTmpIndex(objList, index), 5, yeTxt->GetValue());
 	evt.Skip();
-	objList->SetItem(index - 1, 1, yeTxt->GetValue());
 }
