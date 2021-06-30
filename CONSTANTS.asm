@@ -299,7 +299,7 @@ BUTTON_RIGHT    = %00000001
 ;aniamtion
 MAX_TILES       = $04
 ;physic engine Player*******************
-ACC_MAX         = $02 
+ACC_MAX         = $01
 ACC_SPEED       = $03
 FULL_SPEED      = $05
 TOP_Y_SPEED     = $FF 

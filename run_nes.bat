@@ -31,6 +31,7 @@ goto RunFile
 echo starting...
 start "" "C:\code\Homebrew\src\%name%.nes"
 echo started
+pause
 exit
 
 :MakeFile

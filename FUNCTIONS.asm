@@ -1,4 +1,8 @@
-.include "levels/level_1.asm"                       
+;nesStd
+.include "nesStd\nesStd.asm"
+
+.include "levels/level_1.asm"       
+.include "levels/level_1_2.asm"                       
 .include "engines/Background_engine.asm"            
 .include "players/door_engine.asm"                   
 .include "engines/collision.asm"                     
