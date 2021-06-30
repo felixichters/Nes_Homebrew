@@ -71,11 +71,11 @@ planet_animation:
             ora #BUTTON_START
             and buttons1 
             beq @end 
+            sty debug 
             lda levels_hi,y 
             sta addr_ptr
             lda levels_lo,y 
             sta addr_ptr+1 
-            jsr level_1
-            jsr addr_ptr 
+            jmp (addr_ptr) 
             @end:
                 rts
