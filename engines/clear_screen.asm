@@ -31,10 +31,10 @@ clear_screen:
         sta PPU_ADDR
         lda #$C0 
         sta PPU_ADDR
-    @laod_attributes: 
+    @load_attributes: 
         lda #$00 
         sta PPU_DATA 
         iny
         cpy #$40
-        bne @laod_attributes
+        bne @load_attributes
         rts 

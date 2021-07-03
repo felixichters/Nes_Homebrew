@@ -114,9 +114,9 @@ lamuella:
 	.byte $08,$01
 	.byte $D5,$D2,$C4,$C5,$D4,$D5,$D5,$D2 
 levels_hi:
-	.byte <level_1_2, <level_1, <level_1_2, <level_1, <level_1
+	.byte <level_1, <level_1_2, <level_1_2, <level_1, <level_1
 levels_lo:
-	.byte >level_1_2, >level_1, >level_1_2, >level_1, >level_1
+	.byte >level_1, >level_1_2, >level_1_2, >level_1, >level_1
 planet_x:
 	.byte PLANET1_X,PLANET2_X,PLANET3_X,PLANET4_X,PLANET5_X
 planet_y:
