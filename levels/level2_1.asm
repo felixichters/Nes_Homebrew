@@ -1,40 +1,12 @@
 lelvel2_1:
-    level_1_2:
 jsr wait 
 lda #$CF 
 sta ground_texture
 jsr clear_screen
-
-    lda #<lamuella                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-    sta room_ptr
-    lda #>lamuella
-    sta room_ptr+1                                                                        
-    lda #$21
-    sta ppu_addr_high
-    lda #$8C
-    sta ppu_addr_low
-    jsr background_engine
-
-    IN_MODE_1
-    lda #$3F
-    sta PPU_ADDR
-    lda #$00
-    sta PPU_ADDR
-    lda #$3F                                                                                                                      
-    sta PPU_DATA
-    lda #$30 
-    sta PPU_DATA
-    lda #$31 
-    sta PPU_DATA
-    lda #$32
-    sta PPU_DATA
-    ldx #$00 
-    :
-    lda frame_status
-    beq :- 
 IN_MODE_1
     lda #$00
     sta frame_status
+    :
     inx 
     cpx #$FF 
     bne :- 
@@ -55,33 +27,6 @@ IN_MODE_32
     ldy #$02
     jsr load_ground
 
-    ldx #$20
-    ldy #$03
-    jsr load_ground
-
-    ldx #$20
-    ldy #$04
-    jsr load_ground
-
-    ldx #$20
-    ldy #$1D
-    jsr load_ground
-
-    ldx #$20
-    ldy #$1C
-    jsr load_ground
-
-    ldx #$20
-    ldy #$1D
-    jsr load_ground
-
-    ldx #$20
-    ldy #$1E
-    jsr load_ground
-
-    ldx #$20
-    ldy #$1F
-    jsr load_ground
 
 IN_MODE_1
     ldx #$23
@@ -96,88 +41,14 @@ IN_MODE_1
     ldy #$00
     jsr load_ground
 
-    IN_MODE_32
-    ldx #$20
-    ldy #$00
-    lda #$0D
-    sta ground_texture
-    jsr load_ground
-    
-        lda #$22
-        sta ppu_addr_high
-        lda #$E0
-        sta ppu_addr_low
-        lda #<room_1
-        sta room_ptr
-        lda #>room_1  
-        sta room_ptr+1
-        jsr background_engine 
-
-        lda #$22
-        sta ppu_addr_high
-        lda #$21
-        sta ppu_addr_low
-        lda #<room_2
-        sta room_ptr
-        lda #>room_2
-        sta room_ptr+1
-        jsr background_engine   
-
-        lda #$21
-        sta ppu_addr_high
-        lda #$61
-        sta ppu_addr_low
-        lda #<room_3
-        sta room_ptr
-        lda #>room_3
-        sta room_ptr+1
-        jsr background_engine 
-
-        lda #$20
-        sta ppu_addr_high
-        lda #$C3 
-        sta ppu_addr_low
-        lda #<room_4
-        sta room_ptr
-        lda #>room_4
-        sta room_ptr+1
-        jsr background_engine 
-
-        lda #$20
-        sta ppu_addr_high
-        lda #$A3
-        sta ppu_addr_low
-        lda #<room_5_ground
-        sta room_ptr
-        lda #>room_5_ground
-        sta room_ptr+1
-        jsr background_engine 
-
-        lda #$20
-        sta ppu_addr_high
-        lda #$23
-        sta ppu_addr_low
-        lda #<room_5
-        sta room_ptr
-        lda #>room_5
-        sta room_ptr+1
-        jsr background_engine
-
-        lda #$23
-        sta PPU_ADDR
-        lda #$A0
-        sta PPU_ADDR
-        lda #$1D
-        sta PPU_DATA
-
 ;load_doors******************************************
-    lda #<doors_lvl1_x 
+    lda #<doors_lvl2_x 
     sta doors_ptr_x
-    lda #>doors_lvl1_x
+    lda #>doors_lvl2_x
     sta doors_ptr_x+1
-    lda #<doors_lvl1_y
+    lda #<doors_lvl2_y
     sta doors_ptr_y
-    lda #>doors_lvl1_y
+    lda #>doors_lvl2_y
     sta doors_ptr_y+1 
     lda #$08
     sta tmp1 
@@ -234,27 +105,27 @@ IN_MODE_1
     sta current_room_e2
 ;set var *********************************** 
     ;collision map 
-    lda #<collision_map_1                   ;hibyte der collisions map des ersten levels vorberieten
+    lda #<collision_map_2                   ;hibyte der collisions map des ersten levels vorberieten
     sta collision_ptr                       ;...
-    lda #>collision_map_1                   ;...    
+    lda #>collision_map_2                   ;...    
     sta collision_ptr+1                     ;...
-    lda #<every_frame_lvl1 
+    lda #<every_frame_lvl2 
     sta every_frame_ptr 
-    lda #>every_frame_lvl1
+    lda #>every_frame_lvl2
     sta every_frame_ptr+1 
 
     lda #$04 
     sta collectable_room
 
-    lda #<palette_data_1
+    lda #<palette_data_2
     sta palette_ptr
-    lda #>palette_data_1
+    lda #>palette_data_2
     sta palette_ptr+1
     
 ;load attributes***********************************
-    lda #<attributes_level1
+    lda #<attributes_level2
     sta attribute_ptr 
-    lda #>attributes_level1
+    lda #>attributes_level2
     sta attribute_ptr+1 
     jsr load_attributes
     jsr fade ;palette 
